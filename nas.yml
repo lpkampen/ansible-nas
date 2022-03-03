@@ -213,6 +213,11 @@
         - paperless_ng
       when: (paperless_ng_enabled | default(False))
 
+    - role: petio
+      tags:
+        - petio
+      when: (petio_enabled | default(False))
+
     - role: portainer
       tags:
         - portainer

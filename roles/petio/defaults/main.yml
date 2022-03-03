@@ -1,0 +1,19 @@
+---
+petio_enabled: false
+petio_available_externally: "false"
+
+# directories
+petio_data_directory: "{{ docker_home }}/petio/config"
+petio_logs_directory: "{{ docker_home }}/petio/logs"
+petio_db_directory: "{{ docker_home }}/petio/db"
+
+# uid / gid
+petio_user_id: "0"
+petio_group_id: "0"
+
+# network
+petio_port: "7777"
+petio_hostname: "petio"
+
+# specs
+petio_memory: 1g

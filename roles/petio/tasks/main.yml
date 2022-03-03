@@ -1,0 +1,45 @@
+---
+- name: Create Petio Directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ petio_data_directory }}"
+    - "{{ petio_logs_directory }}"
+    - "{{ petio_db_directory }}"
+
+- name: Mongo
+  docker_container:
+    name: mongo
+    image: mongo:4.4.7
+    container_name: mongo
+    hostname: mongo
+    user: '"{{ petio_user_id }}":"{{ petio_group_id }}"'
+    volumes:
+      - "{{ petio_db_directory }}:/db:rw"
+
+- name: Petio
+  docker_container:
+    name: petio
+    image: ghcr.io/petio-team/petio:latest
+    pull: true
+    depends_on:
+      - mongo
+    volumes:
+      - "{{ petio_data_directory }}:/config:rw"
+      - "{{ petio_logs_directory }}:/logs:rw"
+    ports:
+      - "{{ petio_port }}:7777"
+    env:
+      TZ: "{{ ansible_nas_timezone }}"
+      PUID: "{{ petio_user_id }}"
+      PGID: "{{ petio_group_id }}"
+    restart_policy: unless-stopped
+    memory: "{{ petio_memory }}"
+    labels:
+      traefik.enable: "{{ petio_available_externally }}"
+      traefik.http.routers.petio.rule: "Host(`{{ petio_hostname }}.{{ ansible_nas_domain }}`)"
+      traefik.http.routers.petio.tls.certresolver: "letsencrypt"
+      traefik.http.routers.petio.tls.domains[0].main: "{{ ansible_nas_domain }}"
+      traefik.http.routers.petio.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+      traefik.http.services.petio.loadbalancer.server.port: "7777"
