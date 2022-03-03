@@ -7,4 +7,8 @@ Homepages: [petio](https://github.com/petio-team/petio)
 
 Set `petio_enabled: true` in your `/inventories/[my inventory]/group_vars/nas.yml` file.
 
-The Prowlarr web interface can be found at `http://ansible_nas_host_or_ip:7777` by default
+The Petio web interface can be found at `http://ansible_nas_host_or_ip:7777` by default
+
+## Specific Configuration
+
+When setting up the web interface, you will have to add the mongo database, for now you have to add it manualy: ansible_ip:27017
