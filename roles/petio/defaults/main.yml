@@ -8,11 +8,12 @@ petio_logs_directory: "{{ docker_home }}/petio/logs"
 petio_db_directory: "{{ docker_home }}/petio/db"
 
 # uid / gid
-petio_user_id: "0"
-petio_group_id: "0"
+petio_user_id: "1000"
+petio_group_id: "1000"
 
 # network
 petio_port: "7777"
+petio_mongo_port: "27017"
 petio_hostname: "petio"
 
 # specs

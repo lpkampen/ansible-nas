@@ -11,20 +11,23 @@
 - name: Mongo
   docker_container:
     name: mongo
-    image: mongo:4.4.7
-    container_name: mongo
+    image: mongo:4.4
     hostname: mongo
-    user: '"{{ petio_user_id }}":"{{ petio_group_id }}"'
     volumes:
       - "{{ petio_db_directory }}:/db:rw"
+    ports:
+      - "{{ petio_mongo_port }}:27017"
+    env:
+      PUID: "{{ petio_user_id }}"
+      PGID: "{{ petio_group_id }}"
+    restart_policy: unless-stopped
+    memory: "{{ petio_memory }}"
 
 - name: Petio
   docker_container:
     name: petio
     image: ghcr.io/petio-team/petio:latest
     pull: true
-    depends_on:
-      - mongo
     volumes:
       - "{{ petio_data_directory }}:/config:rw"
       - "{{ petio_logs_directory }}:/logs:rw"
