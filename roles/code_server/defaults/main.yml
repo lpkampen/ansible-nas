@@ -1,0 +1,23 @@
+---
+code_server_enabled: false
+code_server_available_externally: "false"
+
+# directories
+code_server_data_directory: "{{ docker_home }}/code_server/config"
+
+# uid / gid
+code_server_user_id: "1000"
+code_server_group_id: "1000"
+
+# network
+code_server_port: "8443"
+code_server_hostname: "code"
+
+# specs
+code_server_memory: 1g
+
+# passwords
+code_server_password: "password" 
+# code_server_hashed_password: ""
+code_server_sudo_password: "sudopassword"
+# code_server_sudo _password_hash: ""

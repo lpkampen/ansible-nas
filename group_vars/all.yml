@@ -54,9 +54,8 @@ pytivo_enabled: false
 # Petio
 petio_enabled: false
 
-
-
-
+# Code Server
+code_server: false 
 
 ###
 ### General
@@ -413,3 +412,28 @@ vd_users:
     password: "topsecret"
     sudo: "Y"
 vd_rdp_port: 3389
+
+###
+### Petio
+###
+petio_data_directory: "{{ docker_home }}/petio/config"
+petio_logs_directory: "{{ docker_home }}/petio/logs"
+petio_db_directory: "{{ docker_home }}/petio/db"
+petio_user_id: "1000"
+petio_group_id: "1000"
+petio_port: "27777"
+petio_mongo_port: "27017"
+petio_hostname: "petio"
+
+###
+### Code Server
+###
+code_server_data_directory: "{{ docker_home }}/code_server/config"
+code_server_user_id: "1000"
+code_server_group_id: "1000"
+code_server_port: "8443"
+code_server_hostname: "code"
+code_server_password: "password" 
+# code_server_hashed_password: ""
+code_server_sudo_password: "sudopassword"
+# code_server_sudo _password_hash: ""
