@@ -12,7 +12,7 @@ petio_user_id: "1000"
 petio_group_id: "1000"
 
 # network
-petio_port: "7777"
+petio_port: "27777"
 petio_mongo_port: "27017"
 petio_hostname: "petio"
 

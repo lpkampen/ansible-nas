@@ -14,7 +14,7 @@
     image: mongo:4.4
     hostname: mongo
     volumes:
-      - "{{ petio_db_directory }}:/db:rw"
+      - "{{ petio_db_directory }}:/data/db:rw"
     ports:
       - "{{ petio_mongo_port }}:27017"
     env:
@@ -29,8 +29,8 @@
     image: ghcr.io/petio-team/petio:latest
     pull: true
     volumes:
-      - "{{ petio_data_directory }}:/config:rw"
-      - "{{ petio_logs_directory }}:/logs:rw"
+      - "{{ petio_data_directory }}:/app/api/config:rw"
+      - "{{ petio_logs_directory }}:/app/logs:rw"
     ports:
       - "{{ petio_port }}:7777"
     env:
