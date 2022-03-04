@@ -51,6 +51,12 @@ joomla_enabled: false
 # PyTivo
 pytivo_enabled: false
 
+# Petio
+petio_enabled: false
+
+
+
+
 
 ###
 ### General
