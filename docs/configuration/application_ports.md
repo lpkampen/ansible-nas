@@ -11,6 +11,7 @@ By default, applications can be found on the ports listed below.
 | Booksonic       | 4041    | Bridge  | HTTP           |
 | Calibre-web     | 8084    | Bridge  | HTTP           |
 | Cloud Commander | 7373    | Bridge  | HTTP           |
+| Code Server     | 8443    | Bridge  | HTTP           |
 | Couchpotato     | 5050    | Bridge  | HTTP           |
 | DokuWiki        | 8085    | Bridge  | HTTP           |
 | Duplicacy       | 3875    | Bridge  | HTTP           |
