@@ -5,6 +5,8 @@
     state: directory
   with_items:
     - "{{ code_server_data_directory }}"
+    - "{{ code_server_mount_directory }}"
+    - "{{ code_server_code_directory }}"
 
 - name: Code Server
   docker_container:
@@ -13,6 +15,8 @@
     pull: true
     volumes:
       - "{{ code_server_data_directory }}:/config:rw"
+      - "{{ code_server_mount_directory }}:/mnt/mount:rw"
+      - "{{ code_server_code_directory }}:/mnt/code:rw"
     ports:
       - "{{ code_server_port }}:8443"
     env:
@@ -20,9 +24,9 @@
       PUID: "{{ code_server_user_id }}"
       PGID: "{{ code_server_group_id }}"
       PASSWORD: "{{ code_server_password }}"
-      HASHED_PASSWORD: "{{ code_server_hashed_password }}"
+      #HASHED_PASSWORD: "{{ code_server_hashed_password }}"
       SUDO_PASSWORD: "{{ code_server_sudo_password }}"
-      SUDO_PASSWORD_HASH: "{{ code_server_sudo_password_hash }}"
+      #SUDO_PASSWORD_HASH: "{{ code_server_sudo_password_hash }}"
 
     restart_policy: unless-stopped
     memory: "{{ code_server_memory }}"

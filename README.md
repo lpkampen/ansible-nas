@@ -41,6 +41,7 @@ Ansible config and a bunch of Docker containers.
 * [Calibre-web](https://github.com/janeczku/calibre-web) - Provides a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.
 * [Cloud Commander](https://cloudcmd.io/) - A dual panel file manager with integrated web console and text editor
 * [Cloudflare DDNS](https://hub.docker.com/r/joshuaavalon/cloudflare-ddns/) - automatically update Cloudflare with your IP address
+* [Code Server](https://github.com/coder/code-server) - Run VS Code on any machine anywhere and access it in the browser.
 * [CouchPotato](https://couchpota.to/) - for downloading and managing movies
 * [Code Server](https://github.com/coder/code-server) - Run VS Code on any machine anywhere and access it in the browser.
 * [Deluge](https://dev.deluge-torrent.org/) - A lightweight, Free Software, cross-platform BitTorrent client.

@@ -4,6 +4,8 @@ code_server_available_externally: "false"
 
 # directories
 code_server_data_directory: "{{ docker_home }}/code_server/config"
+code_server_mount_directory: "{{ docker_home }}/mnt/mount"
+code_server_code_directory: "{{ docker_home }}/mnt/code"
 
 # uid / gid
 code_server_user_id: "1000"
