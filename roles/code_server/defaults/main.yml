@@ -4,8 +4,8 @@ code_server_available_externally: "false"
 
 # directories
 code_server_data_directory: "{{ docker_home }}/code_server/config"
-code_server_mount_directory: "{{ docker_home }}/mnt/mount"
-code_server_code_directory: "{{ docker_home }}/mnt/code"
+code_server_mount_directory: "{{ docker_home }}"
+code_server_code_directory: "/codefolder"
 
 # uid / gid
 code_server_user_id: "1000"
@@ -22,4 +22,4 @@ code_server_memory: 1g
 code_server_password: "password" 
 # code_server_hashed_password: ""
 code_server_sudo_password: "sudopassword"
-# code_server_sudo _password_hash: ""
+# code_server_sudo_password_hash: ""
